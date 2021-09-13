@@ -1,0 +1,106 @@
+{% extends 'layouts/base.html' %}
+
+{% load static %}
+{% load i18n %}
+{% block content %}
+    <div class="search-box">
+        <div class="serach-form">
+            <div class="closebtn">
+                <span></span>
+                <span></span>
+            </div>
+            <form action="#">
+                <input name="ql" type="text" placeholder="Search by keyword">
+                <button><i class="fa fa-search"></i></button>
+            </form>
+        </div>
+    </div>
+    <section id="page-banner" class="pt-105 pb-110 bg_cover" data-overlay="8"
+             style="background-image: url({% static 'images/page-banner-3.jpg' %})">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="page-banner-cont">
+                        <h2>{% trans 'Coming Events for you' %}!</h2>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{% url 'events:event' %}">{% trans 'Home' %}</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">{{ object.title }}</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="event-singel" class="pt-120 pb-120 gray-bg">
+        <div class="container">
+            <div class="events-area">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="events-left">
+                            <h3>{{ object.title }}</h3>
+                            <a href="#"><span><i
+                                    class="fa fa-calendar"></i>{{ object.created_at | date:'d.m.Y' }}</span></a>
+                            <a href="#"><span><i class="fa fa-clock-o"></i> 17:00 - 23:00 Pm</span></a>
+                            <a href="#"><span><i class="fa fa-map-marker"></i>{{ object.event_location }}</span></a>
+                            <img src="{% static 'images/event/singel-event/se-1.jpg' %}" alt="Event">
+                            <p>{{ object.long_description | safe }}</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="events-right">
+                            <div class="events-coundwon bg_cover" data-overlay="8"
+                                 style="background-image: url({% static 'images/event/singel-event/coundown.jpg' %})">
+                                <div data-countdown="2020/03/12"></div>
+                                <div class="events-coundwon-btn pt-30">
+                                    <a href="#" class="main-btn">{% trans 'Book Your Seat' %}</a>
+                                </div>
+                            </div>
+                            <div class="events-address mt-30">
+                                <ul>
+                                    <li>
+                                        <div class="singel-address">
+                                            <div class="icon">
+                                                <i class="fa fa-clock-o"></i>
+                                            </div>
+                                            <div class="cont">
+                                                <h6>{% trans 'Start Time' %}</h6>
+                                                <span>17:00 pm</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="singel-address">
+                                            <div class="icon">
+                                                <i class="fa fa-bell-slash"></i>
+                                            </div>
+                                            <div class="cont">
+                                                <h6>{% trans 'Finish Time' %}</h6>
+                                                <span>23:00 pm</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="singel-address">
+                                            <div class="icon">
+                                                <i class="fa fa-map"></i>
+                                            </div>
+                                            <div class="cont">
+                                                <h6>{% trans 'Adress' %}</h6>
+                                                <span>Uzbekistan</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div id="contact-map" class="mt-25"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+{% endblock %}

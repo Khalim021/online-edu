@@ -1,0 +1,172 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% load i18n %}
+{% block content %}
+    <div class="search-box">
+        <div class="serach-form">
+            <div class="closebtn">
+                <span></span>
+                <span></span>
+            </div>
+            <form action="#">
+                <input name="qdd" type="text" placeholder="Search by keyword">
+                <button><i class="fa fa-search"></i></button>
+            </form>
+        </div>
+    </div>
+    <section id="page-banner" class="pt-105 pb-130 bg_cover" data-overlay="8"
+             style="background-image: url({% static 'images/page-banner-4.jpg' %})">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="page-banner-cont">
+                        <h2>Lorem ipsum dolor sit amet!</h2>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{% url 'home:home' %}">{% trans 'Home' %}</a></li>
+                                <li class="breadcrumb-item"><a href="{% url 'shops:blog' %}">{% trans 'Blog' %}</a></li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="blog-singel" class="pt-90 pb-120 gray-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="blog-details mt-30">
+                        <div class="thum">
+                            <img src="{{ object.banner.url }}" alt="Blog Details">
+                        </div>
+                        <div class="cont">
+                            <h3>{{ object.title }}</h3>
+                            <ul>
+                                <li><a href="#"><i class="fa fa-calendar"></i>{{ object.created_at | date:'d.m.Y' }}</a>
+                                </li>
+                                <li><a href="#"><i class="fa fa-user"></i>{{ object.author }}</a></li>
+                                <li><a href="#"><i class="fa fa-tags"></i>{{ object.types }}</a></li>
+                            </ul>
+                            <p>{{ object.long_description | safe }}</p>
+                            <ul class="share">
+                                <li class="title">{% trans 'Share' %}:</li>
+                                <li><a href="#"><i class="fa fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            </ul>
+                            <div class="blog-comment pt-45">
+                                <div class="title pt-45 pb-25">
+                                    <h3>{% trans 'Leave a comment' %}</h3>
+                                </div>
+                                <div class="comment-form">
+                                    <form method="POST" action="{% url 'shops:blog_comment' pk=object.pk %}">
+                                        {% csrf_token %}
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-singel">
+                                                    <input name="first_name" type="text" placeholder="Name">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-singel">
+                                                    <input name="last_name" type="text" placeholder="Last Name">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-singel">
+                                                    <textarea name="comment" placeholder="Comment"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-singel">
+                                                    <button type="submit" class="main-btn">{% trans 'Submit' %}</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="saidbar">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-6">
+                                <div class="saidbar-search mt-30">
+                                    <form action="#">
+                                        <input type="text" placeholder="Search">
+                                        <button type="button"><i class="fa fa-search"></i></button>
+                                    </form>
+                                </div>
+                                <div class="categories mt-30">
+                                    <h4>{% trans 'Category' %}</h4>
+                                    <ul>
+                                        <li><a href="#">{{ object.types }}</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-6">
+                                <div class="saidbar-post mt-30">
+                                    <h4>{% trans 'Popular Posts' %}</h4>
+                                    <ul>
+                                        <li>
+                                            <a href="#">
+                                                <div class="singel-post">
+                                                    <div class="thum">
+                                                        <img src="{% static 'images/blog/blog-post/bp-1.jpg' %}"
+                                                             alt="Blog">
+                                                    </div>
+                                                    <div class="cont">
+                                                        <h6>Introduction to languages</h6>
+                                                        <span>20 Dec 2018</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <div class="singel-post">
+                                                    <div class="thum">
+                                                        <img src="{% static 'images/blog/blog-post/bp-2.jpg' %}"
+                                                             alt="Blog">
+                                                    </div>
+                                                    <div class="cont">
+                                                        <h6>How to build a game with java</h6>
+                                                        <span>10 Dec 2018</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <div class="singel-post">
+                                                    <div class="thum">
+                                                        <img src="{% static 'images/blog/blog-post/bp-1.jpg' %}"
+                                                             alt="Blog">
+                                                    </div>
+                                                    <div class="cont">
+                                                        <h6>Basic accounting from primary</h6>
+                                                        <span>07 Dec 2018</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+{% endblock %}
+

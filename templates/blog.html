@@ -1,0 +1,199 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+    <div class="search-box">
+        <div class="serach-form">
+            <div class="closebtn">
+                <span></span>
+                <span></span>
+            </div>
+            <form action="#">
+                <input name="qdd" type="text" placeholder="Search by keyword">
+                <button><i class="fa fa-search"></i></button>
+            </form>
+        </div>
+    </div>
+    <section id="page-banner" class="pt-105 pb-130 bg_cover" data-overlay="8"
+             style="background-image: url({% static 'images/page-banner-4.jpg' %})">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="page-banner-cont">
+                        <h2>{% trans 'Recommended' %}</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="blog-page" class="pt-90 pb-120 gray-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    {% for blog in object_list %}
+                        <div class="singel-blog mt-30">
+                            <div class="blog-thum">
+                                <img src="{{ blog.banner.url }}" alt="Blog">
+                            </div>
+                            <div class="blog-cont">
+                                <a href="{% url 'shops:blog_detail' pk=blog.pk %}"><h3>{{ blog.title }}</h3></a>
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-calendar"></i>{{ blog.created_at | date:'d.m.Y' }}
+                                    </a></li>
+                                    <li><a href="#"><i class="fa fa-user"></i>{{ blog.author }}</a></li>
+                                    <li><a href="#"><i class="fa fa-tags"></i>{{ blog.types }}</a></li>
+                                </ul>
+                                <p>{{ blog.short_description | safe }}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                    <nav class="courses-pagination mt-50">
+                        <ul class="pagination justify-content-lg-end justify-content-center">
+                            <li class="page-item">
+                                <a href="#" aria-label="Previous">
+                                    <i class="fa fa-angle-left"></i>
+                                </a>
+                            </li>
+                            <li class="page-item"><a class="active" href="#">1</a></li>
+                            <li class="page-item"><a href="#">2</a></li>
+                            <li class="page-item"><a href="#">3</a></li>
+                            <li class="page-item">
+                                <a href="#" aria-label="Next">
+                                    <i class="fa fa-angle-right"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-lg-4">
+                    <div class="saidbar">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-6">
+                                <div class="saidbar-search mt-30">
+                                    <form action="#">
+                                        <input type="text" placeholder="Search">
+                                        <button type="button"><i class="fa fa-search"></i></button>
+                                    </form>
+                                </div>
+                                <div class="categories mt-30">
+                                    <h4>{% trans 'Categories' %}</h4>
+                                    <ul>
+                                        {% for type in types %}
+                                            <li>
+                                                {{ type.title }}
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-6">
+                                <div class="saidbar-post mt-30">
+                                    <h4>{% trans 'Popular Posts' %}</h4>
+                                    <ul>
+                                        <li>
+                                            <a href="#">
+                                                <div class="singel-post">
+                                                    <div class="thum">
+                                                        <img src="{% static 'images/blog/blog-post/bp-1.jpg' %}"
+                                                             alt="Blog">
+                                                    </div>
+                                                    <div class="cont">
+                                                        <h6>Introduction to languages</h6>
+                                                        <span>20 Dec 2018</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <div class="singel-post">
+                                                    <div class="thum">
+                                                        <img src="{% static 'images/blog/blog-post/bp-2.jpg' %}"
+                                                             alt="Blog">
+                                                    </div>
+                                                    <div class="cont">
+                                                        <h6>How to build a game with java</h6>
+                                                        <span>10 Dec 2018</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <div class="singel-post">
+                                                    <div class="thum">
+                                                        <img src="{% static 'images/blog/blog-post/bp-1.jpg' %}"
+                                                             alt="Blog">
+                                                    </div>
+                                                    <div class="cont">
+                                                        <h6>Basic accounting from primary</h6>
+                                                        <span>07 Dec 2018</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-6">
+                                <div class="saidbar-post mt-30">
+                                    <h4>{% trans 'Popular Posts' %}</h4>
+                                    <ul>
+                                        <li>
+                                            <a href="#">
+                                                <div class="singel-post">
+                                                    <div class="thum">
+                                                        <img src="{% static 'images/blog/blog-post/bp-1.jpg' %}"
+                                                             alt="Blog">
+                                                    </div>
+                                                    <div class="cont">
+                                                        <h6>Introduction to languages</h6>
+                                                        <span>20 Dec 2018</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <div class="singel-post">
+                                                    <div class="thum">
+                                                        <img src="{% static 'images/blog/blog-post/bp-2.jpg' %}"
+                                                             alt="Blog">
+                                                    </div>
+                                                    <div class="cont">
+                                                        <h6>How to build a game with java</h6>
+                                                        <span>10 Dec 2018</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <div class="singel-post">
+                                                    <div class="thum">
+                                                        <img src="{% static 'images/blog/blog-post/bp-1.jpg' %}"
+                                                             alt="Blog">
+                                                    </div>
+                                                    <div class="cont">
+                                                        <h6>Basic accounting from primary</h6>
+                                                        <span>07 Dec 2018</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+
+{% endblock %}
+

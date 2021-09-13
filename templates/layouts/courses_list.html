@@ -1,0 +1,58 @@
+{% load static %}
+{% load i18n %}
+<section id="course-part" class="pt-115 pb-120 gray-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="section-title pb-45">
+                    <h5>{% trans 'Our Courses' %}</h5>
+                    <h2>{% trans 'Featured courses' %}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row course-slied mt-30">
+            {% for courses in courses %}
+                <div class="col-lg-4 col-md-6">
+                    <div class="singel-course mt-30">
+                        <div class="thum">
+                            <div class="image">
+                                <img src="{{ courses.image.url }}" alt="Course">
+                            </div>
+                            <div class="price">
+                                <span>{% trans 'Free' %}</span>
+                            </div>
+                        </div>
+                        <div class="cont">
+                            <ul>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                            </ul>
+                            <span>{% trans 'Reviews' %}</span>
+                            <a href="{% url 'courses:detail' pk=courses.pk %}"><h4>{{ courses.title }}</h4>
+                            </a>
+                            <div class="course-teacher">
+                                <div class="thum">
+                                    <a href="#"><img src="{{ courses.speakers.avatar.url }}"
+                                                     alt="teacher"></a>
+                                </div>
+                                <div class="name">
+                                    <a href="{% url 'courses:speaker' %}"><h6>{{ courses.speakers.name }}</h6></a>
+                                </div>
+                                <div class="admin">
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-heart"></i><span>10</span></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+

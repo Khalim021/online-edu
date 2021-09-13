@@ -1,0 +1,72 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+    <section id="slider-part" class="slider-active">
+        {% for banner in object_list %}
+            <div class="single-slider bg_cover pt-150"
+                 style="background-image: url({{ banner.banner.url }})"
+                 data-overlay="4">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-8 col-lg-2">
+                            <div class="slider-cont">
+                                <h1 data-animation="bounceInLeft" data-delay="0.5s">{{ banner.title }}</h1>
+                                <p data-animation="fadeInUp" data-delay="1s">{{ banner.short_description | safe }}</p>
+                                <ul>
+                                    <li><a data-animation="fadeInUp" data-delay="1.1s" class="main-btn"
+                                           href="{% url 'about:about' %}">{% trans 'Read More' %}</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+
+    </section>
+
+    <section id="about-part" class="pt-65">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="section-title mt-50">
+                        <h5>{% trans 'About Us' %}</h5>
+                        <h2>{% trans 'Welcome to OnlineEdu ' %}</h2>
+                    </div>
+                    <div class="about-cont">
+                        <p>Education is the process of facilitating learning,
+                            or the acquisition of knowledge,
+                            skills, values, morals, beliefs, and habitsEducation is
+                            the process of facilitating learning,
+                            or the acquisition of knowledge,
+                            skills, values, morals, beliefs, and habits</p>
+                        <a href="{% url 'about:about' %}" class="main-btn mt-55">{% trans 'Learn More' %}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="about-bg">
+            <img src="{% static 'images/about/bg-1.png' %}" alt="About">
+        </div>
+    </section>
+
+    {% include 'layouts/courses_list.html' %}
+
+    {% include 'layouts/teacher_list.html' %}
+
+    {% include 'layouts/shops_list.html' %}
+
+    {% include 'layouts/news_list.html' %}
+
+    {% include 'layouts/partner_logo.html' %}
+
+    <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+
+{% endblock %}
+    
+    
+    
+    
+    
+    

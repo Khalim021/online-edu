@@ -1,0 +1,43 @@
+{% load static %}
+{% load i18n %}
+<section id="teachers-part" class="pt-70 pb-120">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5">
+                <div class="section-title mt-50">
+                    <h5>{% trans 'Featured Speakers' %}</h5>
+                    <h2>{% trans 'Our Speakers' %}</h2>
+                </div>
+                <div class="teachers-cont">
+                    <p>Lorem ipsum gravida nibh vel velit auctor aliquetn sollicitudirem quibibendum auci elit cons
+                        equat ipsutis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet .
+                        Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt mauris. <br> <br> auci elit cons
+                        equat ipsutis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet .
+                        Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt mauris</p>
+                    <a href="#" class="main-btn mt-55">Career with us</a>
+                </div>
+            </div>
+            <div class="col-lg-6 offset-lg-1">
+                <div class="teachers mt-20">
+                    <div class="row">
+                        {% for speakers in speakers %}
+                            <div class="col-sm-6">
+                                <div class="singel-teachers mt-30 text-center">
+                                    <div class="image">
+                                        <img src="{{ speakers.image.url }}" alt="Teachers">
+                                    </div>
+                                    <div class="cont">
+                                        <a href="{% url 'courses:speaker_detail' pk=speakers.pk %}"><h6>{{ speakers.name }}</h6></a>
+                                        <span>{{ speakers.job }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

@@ -1,0 +1,123 @@
+{% extends 'layouts/base.html' %}
+
+{% load static %}
+{% load i18n %}
+{% block content %}
+    <div class="search-box">
+        <div class="serach-form">
+            <div class="closebtn">
+                <span></span>
+                <span></span>
+            </div>
+            <form action="#">
+                <input name="q" type="text" placeholder="Search by keyword">
+                <button><i class="fa fa-search"></i></button>
+            </form>
+        </div>
+    </div>
+    <section id="page-banner" class="pt-105 pb-110 bg_cover" data-overlay="8"
+             style="background-image: url({% static 'images/umidaka_uijC0mf.jpg' %})">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="page-banner-cont">
+                        <a href="">
+                            <h2>{% trans 'About Us' %}</h2>
+                        </a>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{% url 'home:home' %}">Back Home</a></li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about-page" class="pt-70 pb-110">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="section-title mt-50">
+                        <h2>{% trans 'You are Welcome' %}</h2>
+                    </div>
+                    <div class="about-cont">
+                        <p>Lorem ipsum gravida nibh vel velit auctor aliquetn sollicitudirem quibibendum auci elit cons
+                            equat ipsutis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet .
+                            Morbi
+                            accumsan ipsum velit. Nam nec tellus a odio tincidunt mauris. <br> <br> auci elit cons equat
+                            ipsutis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet . Morbi
+                            accumsan ipsum velit. Nam nec tellus a odio tincidunt mauris</p>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="about-image mt-50">
+                        <img src="{% static 'images/about/about-2.jpg' %}" alt="About">
+                    </div>
+                </div>
+            </div>
+            <div class="about-items pt-60">
+                <div class="row justify-content-center">
+                    <div class="col-lg-4 col-md-6 col-sm-10">
+                        <div class="about-singel-items mt-30">
+                            <h4>Why our course!</h4>
+                            <p>Lorem ipsum gravida nibh vel velit auctor aliquetn sollicitudirem quibibendum auci elit
+                                sollicitudirem quibibendum auci</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-10">
+                        <div class="about-singel-items mt-30">
+                            <h4>Our Mission!</h4>
+                            <p>Lorem ipsum gravida nibh vel velit auctor aliquetn sollicitudirem quibibendum auci elit
+                                sollicitudirem quibibendum auci</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-10">
+                        <div class="about-singel-items mt-30">
+                            <h4>Our Purpose!</h4>
+                            <p>Lorem ipsum gravida nibh vel velit auctor aliquetn sollicitudirem quibibendum auci elit
+                                sollicitudirem quibibendum auci</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="counter-part" class="bg_cover pt-65 pb-110" data-overlay="8"
+         style="background-image: url({% static 'images/bg-2.jpg' %})">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-sm-6">
+                    <div class="singel-counter text-center mt-40">
+                        <span><span class="counter">3,500</span>+</span>
+                        <p>{% trans 'Students enrolled' %}</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="singel-counter text-center mt-40">
+                        <span><span class="counter">4,750</span>+</span>
+                        <p>{% trans 'Courses Uploaded' %}</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="singel-counter text-center mt-40">
+                        <span><span class="counter">2,157</span>+</span>
+                        <p>{% trans 'People certificated' %}</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="singel-counter text-center mt-40">
+                        <span><span class="counter">1,155</span>+</span>
+                        <p>{% trans 'Our Speakers' %}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include 'layouts/partner_logo.html' %}
+
+    <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+
+{% endblock %}
